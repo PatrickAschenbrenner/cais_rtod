@@ -17,7 +17,7 @@ class SVM():
     def predict(self, image) -> int:
         """
         Predict the label of the image. +1 if there is a hand, -1 otherwise.
-        :param image:      image location or image object
+        :param image:      image location or ndarray (BGR)
         :return:           label of the image
         """
         if type(image) == str:
@@ -41,7 +41,7 @@ class YOLOv3():
     def predict(self, image) -> int:
         """
         Predict the label of the image. +1 if there is a hand, -1 otherwise.
-        :param image:      image location or image object
+        :param image:      image location or ndarray (BGR)
         :return:           label of the image
         """
         _, detections = self.yolo_detector.detectObjectsFromImage(input_image=image, output_type="array")
@@ -59,7 +59,7 @@ class YOLOv3():
         "box_points":             pixel values of bounding box
                                   [x_min, y_min, x_max, y_max]
         (x_center, y_center, width, height, confidence).
-        :param image:      image location or image object
+        :param image:      image location or ndarray (BGR)
         :return:           list of bounding boxes
         """
         _, detections = self.yolo_detector.detectObjectsFromImage(input_image=image, output_type="array")
@@ -80,7 +80,7 @@ class YOLOv8():
     def predict(self, image) -> int:
         """
         Predict the label of the image. +1 if there is a hand, -1 otherwise.
-        :param image:      image location or image object
+        :param image:      image location or ndarray (BGR)
         :return:           label of the image
         """
         results = self.yolo_detector.predict(source=image, save=False, verbose=False, conf=0.4)
@@ -98,7 +98,7 @@ class YOLOv8():
         "box_points":             pixel values of bounding box
                                   [x_min, y_min, x_max, y_max]
         (x_center, y_center, width, height, confidence).
-        :param image:      image location or image object
+        :param image:      image location or ndarray (BGR)
         :return:           list of bounding boxes
         """
         results = self.yolo_detector.predict(source=image, save=False, verbose=False, conf=0.4)[0]
