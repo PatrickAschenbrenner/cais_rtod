@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from hog import get_img_feature
+from cais_rtod import hog
 
 
 def svm_model(c: float = 10.0,
@@ -29,7 +29,7 @@ def predict(image,
     :param source:     type of image (file or array)
     :return:           label of the image
     """
-    image_feature = get_img_feature(image, hog, source).reshape(1, -1).astype(np.float32)
+    image_feature = hog.get_img_feature(image, hog, source).reshape(1, -1).astype(np.float32)
     _, result = svm.predict(image_feature)
     return result[0][0]
 
