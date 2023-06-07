@@ -14,6 +14,7 @@ setup(
     name='cais_rtod',
     version='0.0.1',
     description='Real-time object detection for images in CAIS simulations.',
-    packages=['cais_rtod'],
+    packages=['cais_rtod', 'cais_rtod.hog', 'cais_rtod.svm', 'cais_rtod.yolo',
+              'cais_rtod.detector'],
     package_dir={'': 'src'}
 )
