@@ -7,8 +7,10 @@ import numpy as np
 package_directory = os.path.dirname(os.path.abspath(__file__))
 
 class SVM():
-    def __init__(self) -> None:
+    def __init__(self, custom_model = None) -> None:
         self.model_path = os.path.join(package_directory, 'models', 'svm', 'svm.xml')
+        if custom_model:
+            self.model_path = custom_model
         self.svm_detector = svm.load_svm(self.model_path)
         self.hog_descriptor = hog.hog_descriptor()
 
@@ -27,9 +29,13 @@ class SVM():
         return svm.predict(image, self.hog_descriptor, self.svm_detector, source)
 
 class YOLOv3():
-    def __init__(self) -> None:
+    def __init__(self, custom_model = None, custom_json = None) -> None:
         self.model_path = os.path.join(package_directory, 'models', 'yolov3', 'tiny-yolov3.pt')
         self.json_path = os.path.join(package_directory, 'models', 'yolov3', 'tiny-yolov3.json')
+        if custom_model:
+            self.model_path = custom_model
+        if custom_json:
+            self.json_path = custom_json
         self.yolo_detector = yolo.load_yolov3_detector(self.model_path, self.json_path)
     
     def predict(self, image) -> int:
@@ -60,13 +66,15 @@ class YOLOv3():
         return detections
 
 class YOLOv8():
-    def __init__(self, model_type: str = "small") -> None:
+    def __init__(self, model_type: str = "small", custom_model = None) -> None:
         if model_type == "small":
             self.model_path = os.path.join(package_directory, 'models', 'yolov8', 'small-yolov8.pt')
         elif model_type == "nano":
             self.model_path = os.path.join(package_directory, 'models', 'yolov8', 'nano-yolov8.pt')
         else:
             raise ValueError('Model type not implemented')
+        if custom_model:
+            self.model_path = custom_model
         self.yolo_detector = yolo.load_yolov8_detector(self.model_path)
     
     def predict(self, image) -> int:
