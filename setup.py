@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from os import path
 
 here = path.abspath(path.dirname(__file__))
@@ -14,7 +14,7 @@ setup(
     name='cais_rtod',
     version='0.0.1',
     description='Real-time object detection for images in CAIS simulations.',
-    packages=['cais_rtod', 'cais_rtod.hog', 'cais_rtod.svm', 'cais_rtod.yolo',
-              'cais_rtod.detector'],
-    package_dir={'': 'src'}
+    url='https://github.com/PatrickAschenbrenner/cais_rtod',
+    packages=find_packages(where='src', exclude=('test*')),
+    package_dir={'': 'src'},
 )
