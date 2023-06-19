@@ -5,7 +5,8 @@ Python library for real-time object (hand) detection in a collaborative artifici
 ### Installation
 - Clone the repository
 - cd cais_rtod
-- pip install .
+- pip install -r requirements.txt
+- pip install -e .
 
 ### Usage
 For an example on how the library can be used, see examples/*
