@@ -23,9 +23,9 @@ print("")
 
 # YOLOv8 example
 print("YOLOv8:")
-yolov3_detector = YOLOv8()
-prediction_hand = yolov3_detector.predict(image_path_hand)
-prediction_no_hand = yolov3_detector.predict(image_path_no_hand)
+yolov8_detector = YOLOv8()
+prediction_hand = yolov8_detector.predict(image_path_hand)
+prediction_no_hand = yolov8_detector.predict(image_path_no_hand)
 if prediction_hand == 1:
     print("True positive!")
 else:
@@ -38,9 +38,9 @@ print("")
 
 # SVM example
 print("SVM:")
-yolov3_detector = SVM()
-prediction_hand = yolov3_detector.predict(image_path_hand)
-prediction_no_hand = yolov3_detector.predict(image_path_no_hand)
+svm_detector = SVM()
+prediction_hand = svm_detector.predict(image_path_hand)
+prediction_no_hand = svm_detector.predict(image_path_no_hand)
 if prediction_hand == 1:
     print("True positive!")
 else:
