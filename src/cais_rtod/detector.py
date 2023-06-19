@@ -58,7 +58,6 @@ class YOLOv3():
         "percentage_probability": probability for detection
         "box_points":             pixel values of bounding box
                                   [x_min, y_min, x_max, y_max]
-        (x_center, y_center, width, height, confidence).
         :param image:      image location or ndarray (BGR)
         :return:           list of bounding boxes
         """
@@ -97,7 +96,6 @@ class YOLOv8():
         "percentage_probability": probability for detection
         "box_points":             pixel values of bounding box
                                   [x_min, y_min, x_max, y_max]
-        (x_center, y_center, width, height, confidence).
         :param image:      image location or ndarray (BGR)
         :return:           list of bounding boxes
         """
