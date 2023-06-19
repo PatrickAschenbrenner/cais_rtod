@@ -14,6 +14,7 @@ setup(
     name='cais_rtod',
     version='0.0.2',
     description='Real-time object detection for images in CAIS simulations.',
-    packages=find_packages(),
-    package_dir={'': 'src'}
+    url='https://github.com/PatrickAschenbrenner/cais_rtod',
+    packages=find_packages(where='src', exclude=('test*')),
+    package_dir={'': 'src'},
 )
